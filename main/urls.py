@@ -4,5 +4,4 @@ from . import views
 urlpatterns = [
     # Index page
     url(r'^index/', views.index)
-
 ]
