@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Article
 
-# Register your models here.
+# Register Article Model to be in admin panel
+admin.site.register(Article)
