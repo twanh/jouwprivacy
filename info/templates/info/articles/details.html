@@ -1,1 +1,28 @@
 {% extends "info/articles/base/base.html" %}
+
+
+{# Change the nav color to the color assigned to the article #}
+{% if article %}
+    {% block nav_color %}
+        {{article.color}}
+    {% endblock nav_color %}
+{% endif %}
+
+{# Change the nav home_text and link to represent a back arrow #}
+{% block nav_home_link %}
+    {% url "info_article_index" %}
+{% endblock nav_home_link %}
+{% block nav_home %}
+   <i class="material-icons" style="padding-left: 10px;">arrow_back</i>{# <span style="font-size: 30px;">back</span> #}
+{% endblock nav_home %}
+
+{# Body #}
+{% block body %}
+    <div class="container">
+        {% if article %}
+            <h1 style="text-align: center;">{{article.title}}</h1>
+            <hr>
+            {{article.body|safe}}
+        {% endif %}
+    </div>
+{% endblock body %}
