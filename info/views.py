@@ -6,7 +6,7 @@ def article_index(request):
     aricles = Article.objects.all()
     args = {}
     # args.update(csrf(request))
-    args['articles'] = articles
+    args['articles'] = aricles
     return render(request, 'info/articles/index.html', context=args)
 
 # Show a detail view of the wanted article
