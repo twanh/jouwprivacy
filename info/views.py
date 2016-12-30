@@ -5,7 +5,7 @@ from .models import Article
 def article_index(request):
     aricles = Article.objects.all()
     args = {}
-    args.update(csrf(request))
+    # args.update(csrf(request))
     args['articles'] = articles
     return render(request, 'info/articles/index.html', context=args)
 
