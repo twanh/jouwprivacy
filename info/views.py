@@ -10,7 +10,7 @@ def article_index(request):
     return render(request, 'info/articles/index.html', context=args)
 
 # Show a detail view of the wanted article
-def detail(request, pk):
+def article_detail(request, pk):
     article = get_object_or_404(Article, pk=pk)
     return render(request, 'info/articles/details.html', context={'article': article})
 
