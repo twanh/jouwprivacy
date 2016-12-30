@@ -21,7 +21,7 @@ class Article(models.Model):
     created_on = models.DateTimeField(default=timezone.now)
 
     def get_absolute_url(self):
-        return reverse('info_articles', kwargs={'pk': self.pk})
+        return reverse('info_article_detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.title
