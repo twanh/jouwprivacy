@@ -11,7 +11,9 @@ def article_index(request):
     return render(request, 'info/articles/index.html', context=args)
 
 def article_search(request):
+    # Checks if the request method = POST so we can receive the data possted by ajax
     if  request.method == 'POST':
+        # Checks if the posted data contains a search query
         if request.POST['query']:
             search_query = request.POST['query']
         else:
@@ -25,7 +27,16 @@ def article_search(request):
         category = []
 
     if ',' in search_query:
-        articles = Article.objects.filter(tag__icontaints=search_query)
+        articles = Article.objects.all()
+        matching = []
+        qtags = search_query.replace(' ', '').split(',')
+        for article in articles:
+            a_tags = article.return_tags().replace(' ', '')
+            for qtag in qtags:
+                if qtag in a_tags:
+                    matching.append(article)
+
+        articles = matching
     else:
         articles = Article.objects.filter(title__icontains=search_query)
 
