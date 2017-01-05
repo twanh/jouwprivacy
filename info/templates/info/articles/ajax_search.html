@@ -1,0 +1,20 @@
+{% if articles %}
+    {% for article in articles %}
+        <a href="{% url 'info_article_detail' article.pk %}" class="white-text">
+            <div class="col s12 m6">
+                <div class="card {{article.color}}">
+                    <div class="card-content">
+                        <span class="card-title">
+                            <strong>{{article.title}}</strong>
+                        </span>
+                        <p>
+                            {{article.body|truncatechars:40|striptags}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+{% else %}
+    <h5 style="text-align:center;font-size:5vh;margin-top: calc(50vh - 7vh);">Nothing Found! </h5>
+{% endif %}

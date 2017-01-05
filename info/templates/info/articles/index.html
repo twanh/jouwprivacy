@@ -2,7 +2,39 @@
 
 {% block body %}
     <div class="container">
+
+        {# Search bar #}
         <div class="row">
+            {% csrf_token %}
+            <nav>
+                <div class="nav-wrapper blue lighten-3" style="margin-top:30px;">
+                    <div class="input-field black-text">
+                        <input id="search" type="search" required>
+                        <label for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons" id="close_search" onclick="$('#search').val('').keyup()">close</i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        {# Search category and tags #}
+        <div class="row">
+            <div class="s12 m12" style="margin-top:0px">
+                  <div class="input-field col s4">
+                    <select id="select_catagory">
+                      <option value="all" selected>Alles</option>
+                      <option value="tip">Tips</option>
+                      <option value="trick">Tricks</option>
+                      <option value="bescherm">Bescherm jezelf online!</option>
+                      <option value="hoe">Hoe doe ik ...?</option>
+                      <option value="uitleg">Uitleg</option>
+                    </select>
+                    <label>Categorie</label>
+                  </div><br>
+                  <a href="#" class="btn" id="search_btn">Zoek</a>
+            </div>
+        </div>
+        {# Displays all articles #}
+        <div class="row" id="search_results">
         {% if articles %}
             {% for article in articles %}
                 <a href="{% url 'info_article_detail' article.pk %}" class="white-text">
@@ -24,3 +56,8 @@
         </div>
     </div>
 {% endblock body %}
+
+{% block extra_scripts %}
+    {% load staticfiles %}
+    <script src="{% static "info/articles/js/search.js" %}"></script>
+{% endblock extra_scripts %}
