@@ -27,10 +27,11 @@
 
               {% block nav_items%}
                 <ul class="right hide-on-med-and-down">
-                  {# Need nav items #}
+                  <li><a href="{% url "main_index" %}">Home</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
-                  {# Need nav items #}
+                  <li><a href="{% url "main_index" %}">Home</a></li>
+                </ul>
               {%endblock nav_items%}
           </nav>
       {% endblock nav %}
