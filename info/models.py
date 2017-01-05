@@ -15,9 +15,19 @@ class Article(models.Model):
     ('blue', 'Blue'),
     )
 
+    CATEGORY_CHOISES = (
+    ('tip', 'Tip'),
+    ('trick', 'Trick'),
+    ('bescherm', 'Bescherm Jezelf'),
+    ('hoe', 'Hoe kan iets?'),
+    ('uitleg', 'Uitleg'),
+    )
+
     title = models.CharField(max_length=500)
     body = models.TextField()
     color = models.CharField(max_length=50, choices=COLOR_CHOISES, default='Grey')
+    category = models.CharField(max_length=10, choices=CATEGORY_CHOISES, default='Tip')
+    tags = models.CharField(max_length=500, default='')
     created_on = models.DateTimeField(default=timezone.now)
 
     def get_absolute_url(self):
@@ -26,5 +36,7 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
+    def return_tags(self):
+        return self.tags.split(',')
 
 
