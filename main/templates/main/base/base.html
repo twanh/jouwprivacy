@@ -23,11 +23,11 @@
 
               {% block nav_items%}
                 <ul class="right hide-on-med-and-down">
-                  <li><a href="#">Informatie</a></li>
+                  <li><a href="{% url "info_article_index" %}">Informatie</a></li>
                   <li><a href="#">Quiz!</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
-                  <li><a href="#">Informatie</a></li>
+                  <li><a href=""{% url "info_article_index" %}"">Informatie</a></li>
                   <li><a href="#">Quiz!</a></li>
               {%endblock nav_items%}
           </nav>
