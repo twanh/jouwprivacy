@@ -15,6 +15,7 @@ class Article(models.Model):
     ('blue', 'Blue'),
     )
 
+    # Categories that a article can be
     CATEGORY_CHOISES = (
     ('tip', 'Tip'),
     ('trick', 'Trick'),
@@ -23,19 +24,28 @@ class Article(models.Model):
     ('uitleg', 'Uitleg'),
     )
 
+    # Title of the aricle
     title = models.CharField(max_length=500)
+    # Body (Text) of the article
     body = models.TextField()
+    # Color in wich the article is diplayed on the site, includes the aricle card and navbar
     color = models.CharField(max_length=50, choices=COLOR_CHOISES, default='Grey')
+    # The category the article belongs to
     category = models.CharField(max_length=10, choices=CATEGORY_CHOISES, default='Tip')
+    # The tags that can be searched to find an article
     tags = models.CharField(max_length=500, default='')
+    # The date/time that article was created
     created_on = models.DateTimeField(default=timezone.now)
 
+    # Returns the absolute url of the article
     def get_absolute_url(self):
         return reverse('info_article_detail', kwargs={'pk': self.pk})
 
+    # Returns a string representatios of the article
     def __str__(self):
         return self.title
 
+    # Returns the tags as list
     def return_tags(self):
         return self.tags.split(',')
 
