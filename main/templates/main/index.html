@@ -1,1 +1,53 @@
 {% extends "main/base/base.html" %}
+{% load  staticfiles %}
+
+{% block body %}
+    <div class="header">
+        <div class="full_screen_slide">
+              <div class="slider">
+                <ul class="slides">
+                  <li>
+                    <img src="{% static "main/img/network.png" %}">
+                    <div class="caption center-align">
+                      <h3><span>Wat weten facebook en google over jou?</span></h3><br>
+                      <h5 class="light grey-text text-lighten-3"><a href="{% url 'info_article_index' %}">Leer meer >></a></h5>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="{% static "main/img/laptop_wifi.jpg" %}">
+                    <div class="caption left-align">
+                      <h3><span>Hoe kan je jezelf beschermen op een openbaren wifi-hotspot?</span></h3><br>
+                      <h5 class="light grey-text text-lighten-3"><a href="{% url 'info_article_index' %}">Leer het nu!</a></h5>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="{% static "main/img/facebook-76536.png" %}">
+                    <div class="caption right-align">
+                      <h3><span>Hoe krijg ik me facebook profiel op prive?</span></h3><br>
+                      <h5 class="light grey-text text-lighten-3"><a href="{% url 'info_article_index' %}">Leer het nu!</a></h5>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="{% static "main/img/security.jpg" %}">
+                    <div class="caption center-align">
+                      <h3><span>Bescherming van jezelf online begint met het begrijpen hoe je kan worden aangevallen!</span></h3><br>
+                      <h5 class="light grey-text text-lighten-3"><a href="{% static "main/img/facebook-76536.png" %}">Leer nu de meeste voorkomende aanvallen (en hoe je jezelf kunt beschermen!)! </h5></a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+        </div>
+    </div>
+    <div class="container">
+
+    </div>
+{% endblock body %}
+
+{% block extra_scripts %}
+    <script>
+     $(function(){
+        $('.slider').slider();
+      });
+
+    </script>
+{% endblock extra_scripts %}
