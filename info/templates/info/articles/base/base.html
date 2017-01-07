@@ -23,7 +23,9 @@
               {% endblock nav_home_link %}" class="brand-logo left">{% block nav_home %}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jouw Privacy
               {% endblock nav_home %}</a>
-              <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+              {% block mobile_btn %}
+                  <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+              {% endblock mobile_btn %}
 
               {% block nav_items%}
                 <ul class="right hide-on-med-and-down">
