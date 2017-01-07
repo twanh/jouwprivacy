@@ -20,3 +20,12 @@
 .indicator-item.active{
     background-color: #448AFF !important;
 }
+/*
+.indicators{
+    display: none;
+}
+*/
+
+#index-nav-title{
+    font-size: 25px;
+}

@@ -1,6 +1,10 @@
 {% extends "main/base/base.html" %}
 {% load  staticfiles %}
 
+{% block nav %}
+    {# Get rid of the navbar #}
+{% endblock nav %}
+
 {% block body %}
     <div class="header">
         <div class="full_screen_slide">
@@ -38,16 +42,37 @@
               </div>
         </div>
     </div>
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large blue" href="#nav" onclick="$(this).hide()">
+          <i class="large material-icons">arrow_downward</i>
+        </a>
+    </div>
+    <nav class="nav-extended blue" id="nav">
+        <div class="nav-wrapper">
+            <div class="container center">
+                <span id="index-nav-title">Jouw Privacy</span>
+            </div>
+        </div>
+    </nav>
+    </div>
     <div class="container">
-
+        <header>
+            <h2 class="center">
+                Hackers, Privacy, Spam en Phising
+            </h2>
+            <h4 class="center">
+                Hoe bescherm je jezelf? <strong>en</strong> Wat weet jij over je eigen bescherming?
+            </h4>
+        </header>
     </div>
 {% endblock body %}
 
 {% block extra_scripts %}
     <script>
      $(function(){
-        $('.slider').slider();
+        h = $(window).height();
+        $('.slider').slider({height: h}).css('height', h+'px');
+        $('.indicators').remove();
       });
-
     </script>
 {% endblock extra_scripts %}
