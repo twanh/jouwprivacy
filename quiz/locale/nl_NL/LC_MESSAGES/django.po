@@ -246,223 +246,220 @@ msgstr "U heeft de bovenstaande vraag verkeerd beantwoord"
 
 #: templates/correct_answer.html:16
 msgid "This is the correct answer"
-msgstr "Esta es la respuesta correcta"
+msgstr "Dit is het goede antwoord"
 
 #: templates/correct_answer.html:23
 msgid "This was your answer."
-msgstr "Esta fue tu respuesta"
+msgstr "Dit was uw antwoord"
 
 #: templates/progress.html:6
 msgid "Progress Page"
-msgstr "Página de Progreso"
+msgstr "Progress Pagina"
 
 #: templates/progress.html:7
 msgid "User Progress Page"
-msgstr "Página Progreso de Usuario"
+msgstr "Gebruikers progress pagina"
 
 #: templates/progress.html:13
 msgid "Question Category Scores"
-msgstr "Pregunta Puntajes de las Categorías"
+msgstr "Vragen Category Scroe"
 
 #: templates/progress.html:20
 msgid "Correctly answererd"
-msgstr "Correctamente contestada"
+msgstr "Goed Beantwoord"
 
 #: templates/progress.html:21
 msgid "Incorrect"
-msgstr "Incorrecta"
+msgstr "Fout"
 
 #: templates/progress.html:50
 msgid "Previous exam papers"
-msgstr "Exámenes anteriores"
+msgstr "Vorig toets papier"
 
 #: templates/progress.html:52
 msgid "Below are the results of exams that you have sat."
-msgstr "Abajo están los resultados de los exámenes que se ha realizado."
+msgstr "Hier beneden staat de resultaten van de toetsen die u heeft gedaan"
 
 #: templates/progress.html:59
 msgid "Quiz Title"
-msgstr "Título del Quiz"
+msgstr "Quiz Titel"
 
 #: templates/progress.html:61
 msgid "Possible Score"
-msgstr "Puntos posibles"
+msgstr "Mogenlijke Score"
 
 #: templates/question.html:13 templates/result.html:13
 msgid "The previous question"
-msgstr "La pregunta anterior"
+msgstr "De vorige vraag"
 
 #: templates/question.html:22
 msgid "Your answer was"
-msgstr "Tu respuesta fue"
+msgstr "Uw antwoord was ja"
 
 #: templates/question.html:47
 msgid "of"
-msgstr "de"
+msgstr "van"
 
 #: templates/question.html:52
 msgid "Question category"
-msgstr "Categoría de la pregunta"
+msgstr "Vraag category"
 
 #: templates/question.html:74
 msgid "Check"
-msgstr "Verificar"
+msgstr "Controleer"
 
 #: templates/quiz/category_list.html:3 templates/quiz/quiz_list.html:3
 #: templates/quiz/sitting_list.html:3
 msgid "All Quizzes"
-msgstr "Todos los Quizes"
+msgstr "Alle Quizes"
 
 #: templates/quiz/category_list.html:6
 msgid "Category list"
-msgstr "Lista de Categorías"
+msgstr "Category lijst"
 
 #: templates/quiz/quiz_detail.html:11
 msgid "You will only get one attempt at this quiz"
-msgstr "Solo se tendrá un intento para este quiz"
+msgstr "U krijgt maar een poging in deze quiz"
 
 #: templates/quiz/quiz_detail.html:16
 msgid "Start quiz"
-msgstr "Empezar quiz"
+msgstr "Begin quiz"
 
 #: templates/quiz/quiz_list.html:6
 msgid "List of quizzes"
-msgstr "Lista de quizes"
+msgstr "Lijst van quizes"
 
 #: templates/quiz/quiz_list.html:14
 msgid "Exam"
-msgstr "Examen"
+msgstr "Toets"
 
 #: templates/quiz/quiz_list.html:15
 msgid "Single attempt"
-msgstr "Un solo intento"
+msgstr "Een Poging"
 
 #: templates/quiz/quiz_list.html:31 templates/quiz/sitting_list.html:42
 msgid "View details"
-msgstr "Ver detalles"
+msgstr "Bekijk details"
 
 #: templates/quiz/quiz_list.html:41
 msgid "There are no available quizzes"
-msgstr "No hay quizes disponibles"
+msgstr "Er zijn geen beschikbaren quizzen"
 
 #: templates/quiz/sitting_detail.html:5
 msgid "Result of"
-msgstr "Resultado de"
+msgstr "Resultaat van"
 
 #: templates/quiz/sitting_detail.html:5
 msgid "for"
-msgstr "para"
+msgstr "voor"
 
 #: templates/quiz/sitting_detail.html:9
 msgid "Quiz title"
-msgstr "Título de Quiz"
+msgstr "Quiz titel"
 
 #: templates/quiz/sitting_detail.html:14 templates/quiz/sitting_list.html:15
 msgid "Completed"
-msgstr "Completado"
+msgstr "Compleet"
 
 #: templates/quiz/sitting_detail.html:22
 msgid "User answer"
-msgstr "Respuesta de usuario"
+msgstr "Gebruikers antwoord"
 
 #: templates/quiz/sitting_detail.html:41
 msgid "incorrect"
-msgstr "Incorrecta"
+msgstr "Incorrect"
 
 #: templates/quiz/sitting_detail.html:43
 msgid "Correct"
-msgstr "Correcto"
+msgstr "Correct"
 
 #: templates/quiz/sitting_detail.html:49
 msgid "Toggle whether correct"
-msgstr "Alternar si es correcta"
+msgstr "Toggle als correct"
 
 #: templates/quiz/sitting_list.html:6
 msgid "List of complete exams"
-msgstr "Lista de examenes completos"
+msgstr "Lijst van complete examens"
 
 #: templates/quiz/sitting_list.html:28
 msgid "Filter"
-msgstr "Filtro"
+msgstr "Filter"
 
 #: templates/quiz/sitting_list.html:52
 msgid "There are no matching quizzes"
-msgstr "No hay quizes que coincidan"
+msgstr "Er zijn geen quizzes"
 
 #: templates/result.html:7
 msgid "Exam Results for"
-msgstr "Resultados del exámen de"
+msgstr "Resultaten voor"
 
 #: templates/result.html:32
 msgid "Exam results"
-msgstr "Resultados del exámen"
+msgstr "Resultaten"
 
 #: templates/result.html:34
 msgid "Exam title"
-msgstr "Título del exámen"
+msgstr "Toets Titel"
 
 #: templates/result.html:38
 msgid "You answered"
-msgstr "Tu respondiste"
+msgstr "U antwoorden"
 
 #: templates/result.html:38
 msgid "questions correctly out of"
-msgstr "preguntas correctas de cada"
+msgstr "vraag goed van de"
 
 #: templates/result.html:38
 msgid "giving you"
-msgstr "darle"
+msgstr "geeft jou"
 
 #: templates/result.html:38
 msgid "percent correct"
-msgstr "porcentaje de respuestas correctas"
+msgstr "procent goed"
 
 #: templates/result.html:48
 msgid "Review the questions below and try the exam again in the future"
-msgstr ""
-"Revisa las preguntas a continuación e intente el examen de nuevo en el "
-"futuro"
+msgstr "Bekijk de vragen hier beneden en probeer het laterop nieuw"
 
 #: templates/result.html:52
 msgid ""
 "The result of this exam will be stored in your progress section so you can "
 "review and monitor your progression"
 msgstr ""
-"El resultado de este examen se almacenará en su sección de progreso para "
-"que pueda revisar y supervisar su progreso"
+"De resultaten worden opgeslagen zodat U uw progress kunt bekijken"
 
 #: templates/result.html:66
 msgid "Your session score is"
-msgstr "Su puntuación de sesión es"
+msgstr "Uw sessie score is"
 
 #: templates/result.html:66
 msgid "out of a possible"
-msgstr "de un total posible"
+msgstr "uit de mogenlijke"
 
 #: templates/result.html:84
 msgid "Your answer"
-msgstr "Tu respuesta"
+msgstr "Uw antwoord"
 
 #: templates/single_complete.html:13
 msgid "You have already sat this exam and only one sitting is permitted"
-msgstr "Usted ya ha enviado este examen, y sólo se permite una sola sesión"
+msgstr "U heeft deze toets al gedaan en het is maar een keer toegestaan om te doen"
 
 #: templates/single_complete.html:15
 msgid "This exam is only accessible to signed in users"
-msgstr "Este examen es sólo accesible para los usuarios inscritos"
+msgstr "Deze toets is alleen maar beschikbaar voor ingelogde gebruikers"
 
 #: templates/view_quiz_category.html:3
 msgid "Quizzes related to"
-msgstr "Quizes relacionados con"
+msgstr "Quizes met betreking tot"
 
 #: templates/view_quiz_category.html:6
 msgid "Quizzes in the"
-msgstr "Quizes en el"
+msgstr "Quizes in de"
 
 #: templates/view_quiz_category.html:6
 msgid "category"
-msgstr "categoría"
+msgstr "category"
 
 #: templates/view_quiz_category.html:20
 msgid "There are no quizzes"
-msgstr "No hay quizes"
+msgstr "Er zijn geen quizzes"
