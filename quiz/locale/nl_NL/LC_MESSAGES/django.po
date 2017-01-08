@@ -16,7 +16,7 @@ msgstr ""
 "X-Generator: Poedit 1.8.4\n"
 "Language-Team: \n"
 "Last-Translator: \n"
-"Language: es_CO\n"
+"Language: nl_NL\n"
 
 #: admin.py:31 admin.py:33 models.py:576
 msgid "Questions"
