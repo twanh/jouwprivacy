@@ -31,8 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'main',
-    'info',
+    'main', # The main app, handles index, contact, etc...
+    'info', # Handles the information, articles, tips, etc...
+    'qa',   # Qustom Q&A app
     'quiz',
     'true_false',
     'multichoice',
