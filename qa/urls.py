@@ -17,4 +17,7 @@ urlpatterns = [
     # Q&A Full question details, shows the full question + the awnser
     # URL: /qa/question/<pk>/
     url(r'^question/(?P<pk>[0-9]+)/$', views.question_detail, name='qa_question_detail'),
+    # Q&A Thanx for the question
+    # URL: /qa/thanks/
+    url(r'^/thanks/', views.thanks, name='qa_thanks'),
  ]

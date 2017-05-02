@@ -51,6 +51,9 @@ def add_question(request):
             GET: Get the form page
     '''
 
+    # Args dict for context
+    args = {}
+
     # Checks if the method is POST
     if request.method == 'POST':
         # Fills in the form data
@@ -79,18 +82,14 @@ def add_question(request):
                 return redirect('qa_index')
             # If not: error
             else:
-                # Error message
-
-        # If the form is not valid
-        else:
+                args['error'] = 'reCapcha is incorrect, probeer opnieuw.'
 
     else:
         form = QuestionForm()
-
-        args = {}
         args['form'] = form
+        # args['errors'] = ''
 
-        return render(request, 'qa/question/add.html', context=args)
+    return render(request, 'qa/question/add.html', context=args)
 
 
 def question_detail(request, pk):
@@ -104,3 +103,11 @@ def question_detail(request, pk):
     args = {}
     args['question'] = question
     return render(request, 'qa/question/detail.html', context=args)
+
+
+def thanks(request):
+    '''
+    Thanks the user for asking a question
+        :return render: renders the thanks.html page
+    '''
+    return render(request, 'qa/thanks.html')
