@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
+
 class Question(models.Model):
     """
     Model for the question that users can aks, and the admin can respond to.default=
@@ -40,4 +41,6 @@ class Question(models.Model):
     def __str__(self):
         return self.question
 
+    def get_absolute_url(self):
+        return reverse('qa_question_detail', kwargs={'pk': self.pk})
 
