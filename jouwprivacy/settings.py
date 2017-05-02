@@ -109,3 +109,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = ''
 STATIC_ROOT= os.path.join(BASE_DIR,'static/')
+
+# Google reCAPTHCA SETTINGS
+GOOGLE_RECAPTCHA_SITE_KEY   = '6Lcaox8UAAAAAITMyYXukAEj664az0sUFsno9ZY6'
+GOOGLE_RECAPTCHA_SECRET_KEY = '6Lcaox8UAAAAAHHoW5DsFWUbAmOtqVdIh7Emnw2e'
+GOOGLE_RECAPTCHA_SITE_VERIFY = 'https://www.google.com/recaptcha/api/siteverify'
