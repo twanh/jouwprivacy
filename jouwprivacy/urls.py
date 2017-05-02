@@ -9,6 +9,9 @@ urlpatterns = [
     url(r'^q/', include('quiz.urls')),
     # Info section/URL
     url(r'^i/', include('info.urls')),
+    # Q&A urls
+    url(r'^qa/', include('qa.urls')),
     # Main section/URL !- THIS URL SHOULD BE LAST - !
     url(r'^', include('main.urls')),
+
 ]
