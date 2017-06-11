@@ -38,8 +38,16 @@ class Question(models.Model):
     published = models.BooleanField(default=False)
 
     def __str__(self):
+        '''
+        Return a str representaion of the model
+            :return str: The question
+        '''
         return self.question
 
     def get_absolute_url(self):
+        '''
+        Return the absolute_url of the question, using reverse()
+            :retturn str: Absolute url
+        '''
         return reverse('qa_question_detail', kwargs={'pk': self.pk})
 

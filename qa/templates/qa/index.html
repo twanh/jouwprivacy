@@ -1,5 +1,7 @@
+{# Extend the base of the qa #}
 {% extends "qa/base/base.html" %}
 
+{# Change the nav bar to fit the homepage #}
 {% block nav %}
   <nav>
       <div class="nav-wrapper {% block nav_color %}blue{% endblock nav_color %}">
@@ -14,6 +16,7 @@
   </nav>
 {% endblock nav %}
 
+{# List all published questions #}
 {% block body %}
     <div class="container">
         <div class="row">

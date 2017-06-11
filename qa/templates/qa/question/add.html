@@ -1,22 +1,35 @@
+{# Extends the base template #}
 {% extends "qa/base/base.html" %}
 
+{# Body #}
 {% block body %}
     <div class="container">
         <div class="row">
             <form action="" method="POST" class="col s12">
+                {# Get the csrf_token for safety #}
                 {% csrf_token %}
+                {# Loop the form fields #}
                 {% for field in form %}
+                    {# Place them all in their own row #}
                     <div class="row">
+                        {# Error field #}
                         <div class="error_field col s12">
                             {{field.errors}}
                         </div>
+
+                        {# Label field #}
                         <div class="input-field col s2">
-                            <label for="">{{field.label_tag}}</label>
+                            <label>{{field.label_tag}}</label>
                         </div>
+
+                        {# Input field #}
                         <div class="input-field col s8">
                             {{field}}
                         </div>
+
+                        {# Checks if there is a help text #}
                         {% if field.help_text %}
+                            {# Renders the help text #}
                             <div class="col s2">
                                 <a href="#" data-position='bottom' data-delay='50' data-tooltip='{{field.help_text|safe}}'  class="tooltipped"><i class="material-icons">info_outline</i></a>
                             </div>
@@ -24,12 +37,16 @@
 
                     </div>
                 {% endfor %}
+
+                {# Add the reCAPTHCA #}
                 <div class="row">
                     <div class="col s12">
                     <script src='https://www.google.com/recaptcha/api.js'></script>
                     <div class="g-recaptcha" data-sitekey="{{sitekey}}"></div>
                     </div>
                 </div>
+
+                {# Submit btn #}
                  <div class="row">
                         <div class="input-field col s12">
                           <button type="submit" class="btn">Vraag!</button>
@@ -40,6 +57,7 @@
     </div>
 {% endblock body %}
 
+{# Extra JS for the tooltipping #}
 {% block extra_scripts %}
     <script type='text/javascript'>
       $(document).ready(function(){

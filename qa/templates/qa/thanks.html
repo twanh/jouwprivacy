@@ -1,5 +1,7 @@
+{# Extend the qa base #}
 {% extends "qa/base/base.html" %}
 
+{# Thanks the uer for the question #}
 {% block body %}
     <div class="container">
         <h1 style="text-align: center;">Bedankt voor uw vraag!</h1>
@@ -7,12 +9,12 @@
     </div>
 {% endblock body %}
 
+{# Auto redirects the user to the qa index #}
 {% block extra_scripts %}
     <script type='text/javascript'>
         window.setTimeout(function(){
 
-        // Move to a new location or you can do something else
-        window.location.href = "https://www.google.co.in";
+        window.location.href = "{% url 'qa_index' %}";
 
     }, 5000);
     </script>

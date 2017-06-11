@@ -8,7 +8,7 @@ from django.core import serializers
 from django.http import JsonResponse
 
 from .models import Question
-from .forms import QuestionForm, AddQuestion
+from .forms import AddQuestion
 
 def index(request):
     '''
@@ -42,57 +42,15 @@ def qa_list(request):
     # Returns a JsonResponse and coverts json (str) to dict (json.loads)
     return JsonResponse(json.loads(questions_json))
 
-# def add_question(request):
-#     '''
-#     Add a Q&A question
-#         URL: /qa/question/add/
-#         METHODS:
-#             POST: Form Submitted, captcha checking and form saving
-#             GET: Get the form page
-#     '''
-
-#     # Args dict for context
-#     args = {}
-
-#     # Checks if the method is POST
-#     if request.method == 'POST':
-#         # Fills in the form data
-#         form = QuestionForm(request.POST)
-#         # Checks if the form is valid
-#         if form.is_valid():
-
-#             # Verify reCAPTCHA
-
-#             # Gets the response from the post
-#             reqcaptcha_response = request.POST.get('g-recaptcha-response')
-#             # Prepares the data to send to the GOOGLE reCAPTCHA API
-#             data = {
-#                 'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
-#                 'response': reqcaptcha_response
-#             }
-#             # POST request to the GOOGLE reCAPTCHA API
-#             r = requests.post(settings.GOOGLE_RECAPTCHA_SITE_VERIFY, data=data)
-#             # Json Result of the request
-#             result = r.json()
-
-#             # Checks if the reCAPTHCA is valid and saves the form
-#             if result['success']:
-#                 form.save()
-#                 # Redirect to question page
-#                 return redirect('qa_index')
-#             # If not: error
-#             else:
-#                 args['error'] = 'reCapcha is incorrect, probeer opnieuw.'
-
-#     else:
-#         form = QuestionForm()
-#         args['form'] = form
-#         # args['errors'] = ''
-
-#     args['sitekey'] = settings.GOOGLE_RECAPTCHA_SITE_KEY
-#     return render(request, 'qa/question/add.html', context=args)
-
 def add_question(request):
+    '''
+    Add a question
+        URL: /wa/question/add/
+        :return
+            redirect: Redirect after succesfull submissing to the thankyou page
+            render: Render the add tempalate
+    '''
+
     # Args dict for context
     args = {}
 
@@ -139,9 +97,12 @@ def add_question(request):
                 # Add the form to the context args
                 args['form'] = form
     else:
+        # Created a form
         form = AddQuestion()
+        # Add the form to context args
         args['form'] = form
 
+    # Create the return
     args['sitekey'] = settings.GOOGLE_RECAPTCHA_SITE_KEY
     return render(request, 'qa/question/add.html', context=args)
 
