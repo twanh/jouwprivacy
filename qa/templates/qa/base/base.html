@@ -17,8 +17,9 @@
        {% block nav %}
           <nav>
               <div class="nav-wrapper {% block nav_color %}blue{% endblock nav_color %}">
-
-              <a href="{% url 'main_index' %}" class="brand-logo left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jouw Privacy</a>
+              {% block nav_back_url %}
+                <a href="{% url 'main_index' %}" class="brand-logo left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jouw Privacy</a>
+              {% endblock nav_back_url %}
               <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 
               {% block nav_items%}
