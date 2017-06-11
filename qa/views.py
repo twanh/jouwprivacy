@@ -8,7 +8,7 @@ from django.core import serializers
 from django.http import JsonResponse
 
 from .models import Question
-from .forms import QuestionForm
+from .forms import QuestionForm, AddQuestion
 
 def index(request):
     '''
@@ -42,55 +42,114 @@ def qa_list(request):
     # Returns a JsonResponse and coverts json (str) to dict (json.loads)
     return JsonResponse(json.loads(questions_json))
 
-def add_question(request):
-    '''
-    Add a Q&A question
-        URL: /qa/question/add/
-        METHODS:
-            POST: Form Submitted, captcha checking and form saving
-            GET: Get the form page
-    '''
+# def add_question(request):
+#     '''
+#     Add a Q&A question
+#         URL: /qa/question/add/
+#         METHODS:
+#             POST: Form Submitted, captcha checking and form saving
+#             GET: Get the form page
+#     '''
 
+#     # Args dict for context
+#     args = {}
+
+#     # Checks if the method is POST
+#     if request.method == 'POST':
+#         # Fills in the form data
+#         form = QuestionForm(request.POST)
+#         # Checks if the form is valid
+#         if form.is_valid():
+
+#             # Verify reCAPTCHA
+
+#             # Gets the response from the post
+#             reqcaptcha_response = request.POST.get('g-recaptcha-response')
+#             # Prepares the data to send to the GOOGLE reCAPTCHA API
+#             data = {
+#                 'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
+#                 'response': reqcaptcha_response
+#             }
+#             # POST request to the GOOGLE reCAPTCHA API
+#             r = requests.post(settings.GOOGLE_RECAPTCHA_SITE_VERIFY, data=data)
+#             # Json Result of the request
+#             result = r.json()
+
+#             # Checks if the reCAPTHCA is valid and saves the form
+#             if result['success']:
+#                 form.save()
+#                 # Redirect to question page
+#                 return redirect('qa_index')
+#             # If not: error
+#             else:
+#                 args['error'] = 'reCapcha is incorrect, probeer opnieuw.'
+
+#     else:
+#         form = QuestionForm()
+#         args['form'] = form
+#         # args['errors'] = ''
+
+#     args['sitekey'] = settings.GOOGLE_RECAPTCHA_SITE_KEY
+#     return render(request, 'qa/question/add.html', context=args)
+
+def add_question(request):
     # Args dict for context
     args = {}
 
-    # Checks if the method is POST
+    # Checks if the method is post
     if request.method == 'POST':
         # Fills in the form data
-        form = QuestionForm(request.POST)
+        form = AddQuestion(request.POST)
         # Checks if the form is valid
         if form.is_valid():
-
-            # Verify reCAPTCHA
+            # Verify the reCAPTCHA
 
             # Gets the response from the post
-            reqcaptcha_response = request.POST.get('g-recaptcha-response')
-            # Prepares the data to send to the GOOGLE reCAPTCHA API
+            recaptcha_response = request.POST.get('g-recaptcha-response')
+            # Prepare the data to be checked by google reCAPTHCA API
             data = {
                 'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
-                'response': reqcaptcha_response
+                'response': recaptcha_response,
             }
-            # POST request to the GOOGLE reCAPTCHA API
-            r = requests.post(settings.GOOGLE_RECAPTCHA_SITE_VERIFY, data=data)
-            # Json Result of the request
-            result = r.json()
 
-            # Checks if the reCAPTHCA is valid and saves the form
-            if result['success']:
-                form.save()
-                # Redirect to question page
-                return redirect('qa_index')
-            # If not: error
+            # POST request to Google reCAPTHCA API
+            req = requests.post(settings.GOOGLE_RECAPTCHA_SITE_VERIFY, data=data)
+            # Check if all went good
+            if req.status_code == requests.codes.ok:
+                # Get the result
+                result = req.json()
             else:
-                args['error'] = 'reCapcha is incorrect, probeer opnieuw.'
+                # If the request failed create an empty lust
+                result = list()
 
+            # Check the result of the reCAPTHCa
+            if result['success']:
+                # Save all the form data
+                model = Question()
+                model.question = form.cleaned_data['question_field']
+                model.explaination = form.cleaned_data['explaination_field']
+                model.catergory_field = form.cleaned_data['catergory_field']
+                model.save()
+                # Redirect to thank you page
+                return redirect('qa_thanks')
+            # If no ['success'], raise an error
+            else:
+                # Add a cap-error to the context args
+                args['cap-error'] = 'reCapcha is ongeldig, probeer opnieuw'
+                # Add the form to the context args
+                args['form'] = form
     else:
-        form = QuestionForm()
+        form = AddQuestion()
         args['form'] = form
-        # args['errors'] = ''
 
     args['sitekey'] = settings.GOOGLE_RECAPTCHA_SITE_KEY
     return render(request, 'qa/question/add.html', context=args)
+
+
+
+
+
+
 
 
 def question_detail(request, pk):

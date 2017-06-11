@@ -1,4 +1,5 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, Form
+from django import forms
 from .models import Question
 
 class QuestionForm(ModelForm):
@@ -8,6 +9,7 @@ class QuestionForm(ModelForm):
         self.fields['question'].label = 'Vraag'
         self.fields['explaination'].label = 'Uitleg'
         self.fields['catergory'].label = 'Categorie'
+        self.fields['explaination'].attrs = {'class': 'materialize-textarea'}
 
         # Again, iterate over all of our field objects.
         for field in self._meta.fields:
@@ -34,3 +36,31 @@ class QuestionForm(ModelForm):
                 'explaination'  : ('Verdere uitleg over uw vraag. (Niet verplicht)'),
                 'catergory'      : ('De catergorie die bij uw vraag past.'),
         }
+
+
+class AddQuestion(Form):
+
+    CATEGORY_CHOISES = (
+        ('online_veiligheid', 'Online Veiligheid'),
+        ('hoe', 'Hoe kan ik ...?/Hoe werkt ...?'),
+        ('anders', 'Anders'),
+    )
+
+    question_field = forms.CharField(
+        max_length=500,
+        label='Vraag:',
+        help_text="Uw vraag in een zin sammengevat.",
+        )
+    explaination_field = forms.CharField(
+        widget=forms.Textarea(attrs={'class': 'materialize-textarea'}),
+        label='Uitleg:',
+        help_text='Een korte uitleg over uw vraag.',
+        )
+    catergory_field = forms.ChoiceField(
+        choices=CATEGORY_CHOISES,
+        widget=forms.Select(attrs={'class': 'browser-default', 'style': 'margin-bottom: 50px;'}),
+        label='Categorie:',
+        help_text='Kies een passende categorie voor uw vraag.',
+        )
+
+

@@ -3,25 +3,25 @@
 {% block body %}
     <div class="container">
         <div class="row">
+            <span class="error">{{error}}</span>
             <form action="" method="POST" class="col s12">
                 {% csrf_token %}
+                {# Needs fixing for catergory errors and textfield #}
                 {% for field in form %}
                     <div class="row">
                         <div class="error_field col s12">
-                            {{field.errors}}
+                            {{field.error}}
                         </div>
                         <div class="input-field col s2">
-                            <label for="">{{field.label_tag}}</label>
+                              <label>{{field.label_tag}}</label>
                         </div>
                         <div class="input-field col s8">
-                            {{field}}
-                        </div>
-                        {% if field.help_text %}
-                            <div class="col s2">
-                                <a href="#" data-position='bottom' data-delay='50' data-tooltip='{{field.help_text|safe}}'  class="tooltipped"><i class="material-icons">info_outline</i></a>
-                            </div>
-                        {% endif %}
 
+                              {{field}}
+                        </div>
+                        <div class="col s2">
+                              <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{field.help_text}}"><i class="material-icons">info_outline</i></a>
+                        </div>
                     </div>
                 {% endfor %}
                 <div class="row">
