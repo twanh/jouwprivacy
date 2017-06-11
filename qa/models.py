@@ -1,12 +1,11 @@
 from django.db import models
 from django.utils import timezone
-
+from django.core.urlresolvers import reverse
 
 class Question(models.Model):
     """
     Model for the question that users can aks, and the admin can respond to.default=
     """
-
 
     # Choised for the catergory
     CATEGORY_CHOISES = (
