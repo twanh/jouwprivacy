@@ -8,7 +8,7 @@ from django.core import serializers
 from django.http import JsonResponse
 
 from .models import Question
-from .form import QuestionForm
+from .forms import QuestionForm
 
 def index(request):
     '''
@@ -89,6 +89,7 @@ def add_question(request):
         args['form'] = form
         # args['errors'] = ''
 
+    args['sitekey'] = settings.GOOGLE_RECAPTCHA_SITE_KEY
     return render(request, 'qa/question/add.html', context=args)
 
 

@@ -1,0 +1,19 @@
+{% extends "qa/base/base.html" %}
+
+{% block body %}
+    <div class="container">
+        <h1 style="text-align: center;">Bedankt voor uw vraag!</h1>
+        <h2 style="text-align: center;">Uw vraag zal zo snel mogenlijk beantwoord worden!</h2>
+    </div>
+{% endblock body %}
+
+{% block extra_scripts %}
+    <script type='text/javascript'>
+        window.setTimeout(function(){
+
+        // Move to a new location or you can do something else
+        window.location.href = "https://www.google.co.in";
+
+    }, 5000);
+    </script>
+{% endblock extra_scripts %}

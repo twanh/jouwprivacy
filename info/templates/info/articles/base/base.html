@@ -30,9 +30,13 @@
               {% block nav_items%}
                 <ul class="right hide-on-med-and-down">
                   <li><a href="{% url "main_index" %}">Home</a></li>
+                  <li><a href="{% url 'qa_index' %}">Q&A</a></li>
+                  <li><a href="#">Quiz!</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                   <li><a href="{% url "main_index" %}">Home</a></li>
+                  <li><a href="{% url 'qa_index' %}">Q&A</a></li>
+                  <li><a href="#">Quiz!</a></li>
                 </ul>
               {%endblock nav_items%}
           </nav>

@@ -1,0 +1,38 @@
+{% extends "qa/base/base.html" %}
+
+{% block nav %}
+  <nav>
+      <div class="nav-wrapper {% block nav_color %}{{question.color}}{% endblock nav_color %}">
+
+      <a href="{% url 'main_index' %}" class="brand-logo left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-icons">arrow_back</i></a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+{#
+      {% block nav_items%}
+        <ul class="right hide-on-med-and-down">
+          <li><a href="{% url 'info_article_index' %}">Informatie</a></li>
+          <li><a href="{% url 'qa_index' %}">Q&A</a></li>
+          <li><a href="#">Quiz!</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><a href="{% url 'info_article_index' %}">Informatie</a></li>
+          <li><a href="{% url 'qa_index' %}">Q&A</a></li>
+          <li><a href="#">Quiz!</a></li>
+      {%endblock nav_items%} #}
+  </nav>
+{% endblock nav %}
+
+{% block body %}
+    {% if question %}
+        <div class="container">
+            <div class="question">
+                <h1 style="text-align: center;">question.question</h1><br>
+                <p>
+                    {{question.explaination|striptags}}
+                </p>
+            </div>
+            <div class="awnser">
+                {{question.awnser}}
+            </div>
+        </div>
+    {% endif %}
+{% endblock body %}

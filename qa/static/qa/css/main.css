@@ -1,0 +1,44 @@
+.caption a {
+    margin-top: 15px;
+    color: white;
+    padding: 10px;
+    background-color: #B5D1FF;
+    border-bottom: 2px solid #3F81EF;
+}
+
+.caption h3 span{
+    padding: 4px;
+    background-color: #82b1ff;
+}
+.caption a:hover {
+    border-left: 4px solid #82B1FF;
+    background-color: #3F81EF;
+    font-weight: bolder;
+    border-bottom: none;
+}
+
+.indicator-item.active{
+    background-color: #448AFF !important;
+}
+/*
+.indicators{
+    display: none;
+}
+*/
+
+#index-nav-title{
+    font-size: 25px;
+}
+
+.quote{
+    border: 2px solid #92B2EC;
+}
+
+.btn-group{
+    margin-top: 40px;
+}
+
+.btn-group a{
+    max-width: 500px;
+    width: 500px;
+}
